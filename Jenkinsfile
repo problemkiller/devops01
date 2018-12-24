@@ -13,7 +13,7 @@ pipeline {
             echo 'Testing..'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             sleep 2
           }
@@ -25,5 +25,8 @@ pipeline {
         echo 'Deploying....'
       }
     }
+  }
+  environment {
+    args = '-v /root/.m2:/root/.m2'
   }
 }
