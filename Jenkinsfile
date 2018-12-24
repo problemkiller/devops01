@@ -1,13 +1,8 @@
 pipeline {
-  agent {
-	any {
-	  args '-v /root/.m2:/root/.m2'
-	}
-  }
+  agent any
   stages {
     stage('Build') {
       steps {
-        echo 'Building..'
 	sh 'mvn -B -DskipTests clean package'
       }
     }
@@ -17,6 +12,11 @@ pipeline {
           steps {
             echo 'Testing..'
           }
+	  post {
+                always {
+                    junit 'target/surefire-reports/*.xml' 
+                }
+	  }
         }
         stage('error') {
           steps {
@@ -30,8 +30,5 @@ pipeline {
         echo 'Deploying....'
       }
     }
-  }
-  environment {
-    args = '-v /root/.m2:/root/.m2'
   }
 }
