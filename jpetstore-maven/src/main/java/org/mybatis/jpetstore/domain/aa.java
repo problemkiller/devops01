@@ -19,7 +19,7 @@ import java.io.Serializable;
 
 import net.sourceforge.stripes.validation.Validate;
 
-
+/*
  * The Class Account.
  *
  * @author Eduardo Macarron
@@ -28,7 +28,7 @@ public class Account implements Serializable {
 
   private static final long serialVersionUID = 8751282105532159742L;
 
-  prite String username;
+  private String username;
   private String password;
   private String email;
   private String firstName;
@@ -46,6 +46,10 @@ public class Account implements Serializable {
   private boolean listOption;
   private boolean bannerOption;
   private String bannerName;
+  private String bannerName1;
+  private String bannerName2;
+  private String bannerName3;
+  private String aaa;
 
   public String getUsername() {
     return username;
